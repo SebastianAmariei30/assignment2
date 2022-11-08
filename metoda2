@@ -1,0 +1,25 @@
+#include <stdlib.h>
+void erat (int n)
+{
+        int*v;
+        v=(int*)malloc(n+1);
+        v[0]=1;
+        v[1]=1;
+        for(int i=2;i<=n;i++)
+                if(v[i]==0)
+                        for(int j=2*i;j<=n;j=j+i)
+                                v[j]=1;
+        for(int i=1;i<=n;i++)
+                if(v[i]==0)
+                        printf("%d\n",i);
+}
+int main()
+{
+        int n;
+        printf("The number n is:");
+        if(scanf("%d",&n)!=1)
+                printf("Input not recognised as an integer, please try again!");
+        else
+                 erat(n);
+        return 0;
+}
